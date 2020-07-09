@@ -1,0 +1,25 @@
+<h1>Add user:</h1>
+<form class="user-form" method="POST" action="/adduser">
+    {{ form.hidden_tag() }}
+    <div class="user-form-group">
+        {{ form.first_name.label }}:
+        {{ form.first_name }}
+        {% if form.first_name.errors %}
+            {% for error in form.first_name.errors %}
+                <p class="user-error-message">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="user-form-group">
+        {{ form.age.label }}:
+        {{ form.age }}
+        {% if form.age.errors %}
+            {% for error in form.age.errors %}
+                <p class="user-error-message">{{ error }}</p>
+            {% endfor %}
+        {% endif %}
+    </div>
+    <div class="user-form-submit">
+        {{ form.submit }}
+    </div>
+</form>
