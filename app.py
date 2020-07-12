@@ -3,6 +3,7 @@ from models.user import Db, User
 from modules.userform import UserForm
 from random_word import RandomWords
 from random import randint
+import os
 
 app = Flask(__name__)
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres@localhost/userdb'
