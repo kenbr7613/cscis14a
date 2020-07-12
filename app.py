@@ -5,7 +5,8 @@ from random_word import RandomWords
 from random import randint
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres@localhost/userdb'
+# app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres@localhost/userdb'
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.secret_key = "s14a-key"
 app.config.update(
