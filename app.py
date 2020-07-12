@@ -88,7 +88,7 @@ def addrandomuser():
     try:
         first, last = r.get_random_word().capitalize(), r.get_random_word().capitalize()
     except Exception as e:
-	print(str(e))
+        print(str(e))
         first, last = "Random", "Name"
     name = " ".join([first, last])
     age = randint(1,100)
