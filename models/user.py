@@ -4,7 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 Db = SQLAlchemy()
 
 
-class User(db.Model):
+class User(Db.Model):
     # Fields
     __tablename__ = 'users'
     user_id = Db.Column(Db.Integer, primary_key=True, autoincrement=True)
@@ -14,3 +14,4 @@ class User(db.Model):
     # toString
     def toString(self):
         print(f"{self.user_id}: {self.first_name} ({self.age})")
+        return f"{self.user_id}: {self.first_name} ({self.age})"
