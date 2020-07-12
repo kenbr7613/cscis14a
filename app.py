@@ -15,6 +15,9 @@ app.config.update(
 )
 Db.init_app(app)
 
+
+r = RandomWords()
+
 @app.route('/')
 def index():
     user_list = []
@@ -82,8 +85,11 @@ def deleteuser(db_id):
 
 @app.route('/addrandomuser')
 def addrandomuser():
-    r = RandomWords()
-    first, last = r.get_random_word().capitalize(), r.get_random_word().capitalize()
+    try:
+        first, last = r.get_random_word().capitalize(), r.get_random_word().capitalize()
+    catch Exception as e:
+	print(str(e))
+        first, last = "Random", "Name"
     name = " ".join([first, last])
     age = randint(1,100)
     Db.session.add(User(first_name=name, age=age))
